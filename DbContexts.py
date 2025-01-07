@@ -6,9 +6,9 @@ def DbContext_saveuser(message):
         connection = pyodbc.connect(
             'DRIVER={SQL Server};'
             'SERVER=localhost;'
-            'DATABASE=Bot_test;'
-            'UID=root;'
-            'PWD=AnthonyY05Y!;'
+            'DATABASE=QuickMedia_bot;'
+            'USERNAME=root;'
+            'PASSWORD=AnthonyY05Y!;'
             'TrustServerCertificate=True;'
         )
         print(f"Connection successful!      [{datetime.datetime.now()}]")
@@ -27,9 +27,9 @@ def DbContext_setlanguage(language, message):
         connection = pyodbc.connect(
             'DRIVER={SQL Server};'
             'SERVER=localhost;'
-            'DATABASE=Bot_test;'
-            'UID=root;'
-            'PWD=AnthonyY05Y!;'
+            'DATABASE=QuickMedia_bot;'
+            'USERNAME=root;'
+            'PASSWORD=AnthonyY05Y!;'
             'TrustServerCertificate=True;'
         )
         print(f"Connection successful!      [{datetime.datetime.now()}]")
@@ -48,9 +48,9 @@ def DbContext_language(message):
         connection = pyodbc.connect(
             'DRIVER={SQL Server};'
             'SERVER=localhost;'
-            'DATABASE=Bot_test;'
-            'UID=root;'
-            'PWD=AnthonyY05Y!;'
+            'DATABASE=QuickMedia_bot;'
+            'USERNAME=root;'
+            'PASSWORD=AnthonyY05Y!;'
             'TrustServerCertificate=True;'
         )
 
