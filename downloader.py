@@ -17,6 +17,7 @@ def downloadMP3(url, id, bot, language):
                 'preferredcodec': 'mp3',    
             }],
             'outtmpl': os.path.join(chat_folder, '%(title)s.%(ext)s'),
+            'cookies': 'cookie.json'
         }
         options_id = {
             'format': 'bestaudio/best',
@@ -27,6 +28,7 @@ def downloadMP3(url, id, bot, language):
             }],
          
             'outtmpl': os.path.join(chat_folder, '%(id)s.%(ext)s'),
+            'cookies': 'cookie.json'
         }
 
         invalid_chars = set(r'\/:*?"<>|')
@@ -71,6 +73,7 @@ def downloadWAV(url, id, bot, language):
                 'preferredcodec': 'wav'
             }],
             'outtmpl': os.path.join(chat_folder, '%(title)s.%(ext)s'),
+            'cookies': 'cookie.json'
         }
         options_id = {
             'format': 'bestaudio/best',
@@ -79,6 +82,7 @@ def downloadWAV(url, id, bot, language):
                 'preferredcodec': 'wav'
             }],
             'outtmpl': os.path.join(chat_folder, '%(id)s.%(ext)s'),
+            'cookies': 'cookie.json'
         }
 
         invalid_chars = set(r'\/:*?"<>|')
@@ -130,6 +134,7 @@ def YTdownloadVideo1080p(url, id, bot, language):
                 },
             ],
             'outtmpl': os.path.join(chat_folder, '%(title)s.%(ext)s'),
+            'cookies': 'cookie.json'
         }
         options_id = {
             'format': 'bestvideo[width<=1080][vcodec=h264]+bestaudio[acodec=aac]/best',
@@ -145,6 +150,7 @@ def YTdownloadVideo1080p(url, id, bot, language):
                 },
             ],
             'outtmpl': os.path.join(chat_folder, '%(id)s.%(ext)s'),
+            'cookies': 'cookie.json'
         }
 
         invalid_chars = set(r'\/:*?"<>|')
@@ -191,6 +197,7 @@ def YTdownloadVideo720p(url, id, bot, language):
                 },
             ],
             'outtmpl': os.path.join(chat_folder, '%(title)s.%(ext)s'),
+            'cookies': 'cookie.json'
         }
         options_id = {
             'format': 'bestvideo[width<=720][vcodec=h264]+bestaudio[acodec=aac]/best',
@@ -207,6 +214,7 @@ def YTdownloadVideo720p(url, id, bot, language):
             ],
             'write-thumbnail': True,
             'outtmpl': os.path.join(chat_folder, '%(id)s.%(ext)s'),
+            'cookies': 'cookie.json'
         }
 
         invalid_chars = set(r'\/:*?"<>|')
@@ -253,6 +261,7 @@ def YTdownloadVideo480p(url, id, bot, language):
                 },
             ],
             'outtmpl': os.path.join(chat_folder, '%(title)s.%(ext)s'),
+            'cookies': 'cookie.json'
         }
         options_id = {
             'format': 'bestvideo[width<=480][vcodec=h264]+bestaudio[acodec=aac]/best',
@@ -268,6 +277,7 @@ def YTdownloadVideo480p(url, id, bot, language):
                 },
             ],
             'outtmpl': os.path.join(chat_folder, '%(id)s.%(ext)s'),
+            'cookies': 'cookie.json'
         }
 
         invalid_chars = set(r'\/:*?"<>|')
@@ -305,12 +315,14 @@ def downloadVideoClip(url, id, bot, language):
             'max_filesize': 50 * 1024 * 1024,
             'write_thumbnail': True,
             'outtmpl': os.path.join(chat_folder, '%(title)s.%(ext)s'),
+            'cookies': 'cookie.json'
         }
         options_id = {
             'format': 'bestvideo+bestaudio[acodec=aac]/best',
             'max_filesize': 50 * 1024 * 1024,
             'write_thumbnail': True,
             'outtmpl': os.path.join(chat_folder, '%(id)s.%(ext)s'),
+            'cookies': 'cookie.json'
         }
 
         invalid_chars = set(r'\/:*?"<>|')
@@ -349,6 +361,7 @@ def downloadVideoYTClip(url, id, bot, language):
 
             'write_thumbnail': True,
             'outtmpl': os.path.join(chat_folder, '%(title)s.%(ext)s'),
+            'cookies': 'cookie.json'
         }
         options_id = {
             'format': 'bestvideo[vcodec=h264]+bestaudio[acodec=aac]/best',
@@ -356,6 +369,7 @@ def downloadVideoYTClip(url, id, bot, language):
 
             'write_thumbnail': True,
             'outtmpl': os.path.join(chat_folder, '%(id)s.%(ext)s'),
+            'cookies': 'cookie.json'
         }
 
         invalid_chars = set(r'\/:*?"<>|')
