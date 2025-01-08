@@ -1,16 +1,9 @@
-import pyodbc
+import pymysql
 import datetime
 
 def DbContext_saveuser(message):
     try:
-        connection = pyodbc.connect(
-            'DRIVER={SQL Server};'
-            'SERVER=localhost;'
-            'DATABASE=QuickMedia_bot;'
-            'USERNAME=root;'
-            'PASSWORD=AnthonyY05Y!;'
-            'TrustServerCertificate=True;'
-        )
+        connection = pymysql.connect(host="localhost", user="admin", password="589674", database="quickmedia_bot")
         print(f"Connection successful!      [{datetime.datetime.now()}]")
         save_user(connection, message)
     except Exception as e:
@@ -24,14 +17,8 @@ def DbContext_saveuser(message):
 
 def DbContext_setlanguage(language, message):
     try:
-        connection = pyodbc.connect(
-            'DRIVER={SQL Server};'
-            'SERVER=localhost;'
-            'DATABASE=QuickMedia_bot;'
-            'USERNAME=root;'
-            'PASSWORD=AnthonyY05Y!;'
-            'TrustServerCertificate=True;'
-        )
+        connection = pymysql.connect(host="localhost", user="admin", password="589674", database="quickmedia_bot")
+
         print(f"Connection successful!      [{datetime.datetime.now()}]")
         set_language(connection, language, message)
     except Exception as e:
@@ -45,17 +32,10 @@ def DbContext_setlanguage(language, message):
 
 def DbContext_language(message):
     try:
-        connection = pyodbc.connect(
-            'DRIVER={SQL Server};'
-            'SERVER=localhost;'
-            'DATABASE=QuickMedia_bot;'
-            'USERNAME=root;'
-            'PASSWORD=AnthonyY05Y!;'
-            'TrustServerCertificate=True;'
-        )
+        connection = pymysql.connect(host="localhost", user="admin", password="589674", database="quickmedia_bot")
 
         print(f"Connection successful!      [{datetime.datetime.now()}]")
-        language = user_language(connection, message)
+        language = userlanguage(connection, message)
         return language
     except Exception as e:
         print("Error:", e)
@@ -64,17 +44,17 @@ def DbContext_language(message):
         if 'connection' in locals() and connection:
             connection.commit()
             connection.close()
-            print(f"Connection closed.      [{datetime.datetime.now()}]")
+            print(f"Connection closed.          [{datetime.datetime.now()}]")
         
 
 
 
 def save_user(connection, message):
     cursor = connection.cursor()
-    cursor.execute("SELECT CASE WHEN EXISTS (SELECT 1 FROM users WHERE user_chat = (?)) THEN 'TRUE' ELSE 'FALSE' end as query;", (message))
+    cursor.execute(f"SELECT CASE WHEN EXISTS (SELECT 1 FROM users WHERE userchat = %s) THEN 'TRUE' ELSE 'FALSE' end as query;", (message,))
     row = cursor.fetchone()
     if ('FALSE' in row):
-        cursor.execute("INSERT INTO users (user_chat) VALUES (?);", (message))
+        cursor.execute(f"INSERT INTO users (userchat) VALUES (%s);", (message,))
         print(f"{message} added.      [{datetime.datetime.now()}]")
     else:
         print(f"{message} already exists.      [{datetime.datetime.now()}]")
@@ -82,14 +62,14 @@ def save_user(connection, message):
 
 def set_language(connection, language, message):
     cursor = connection.cursor()
-    cursor.execute("UPDATE users SET user_language = (?) WHERE user_chat = (?);", (language, message))
-    print(f"Language updated successfully!      [{datetime.datetime.now()}]")
+    cursor.execute(f"UPDATE users SET userlanguage = %s WHERE userchat = %s;", (language, message,))
+    print(f"Language updated successfully!    [{datetime.datetime.now()}]")
     cursor.close() 
 
 
-def user_language(connection, message):
+def userlanguage(connection, message):
     cursor = connection.cursor()
-    cursor.execute(f"SELECT user_language from users where user_chat=(?);", (message))
+    cursor.execute(f"SELECT userlanguage from users where userchat= %s;", (message,))
     row = cursor.fetchone()
     if("russian" in  row):
         language = 'russian'

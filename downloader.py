@@ -168,7 +168,7 @@ def YTdownloadVideo1080p(url, id, bot, language):
         file = ydl.prepare_filename(info) 
 
         with open(file, 'rb') as file:
-            bot.send_video(chat_id=id, video=file, caption=f'{info['title']}\n@QuickMediaYoutubeBot', supports_streaming=True)
+            bot.send_video(chat_id=id, video=file, caption=f"{info['title']}\n@QuickMediaYoutubeBot", supports_streaming=True)
 
     except Exception as e:
         if(language == 'russian'):
@@ -232,7 +232,7 @@ def YTdownloadVideo720p(url, id, bot, language):
         file = ydl.prepare_filename(info)
 
         with open(file, 'rb') as file:
-            bot.send_video(chat_id=id, video=file, caption=f'{info['title']}\n@QuickMediaYoutubeBot',supports_streaming=True)
+            bot.send_video(chat_id=id, video=file, caption=f"{info['title']}\n@QuickMediaYoutubeBot",supports_streaming=True)
 
     except Exception as e:
         if(language == 'russian'):
@@ -295,7 +295,7 @@ def YTdownloadVideo480p(url, id, bot, language):
         file = ydl.prepare_filename(info)
 
         with open(file, 'rb') as file:
-            bot.send_video(chat_id=id, video=file, caption=f'{info['title']}\n@QuickMediaYoutubeBot', supports_streaming=True)
+            bot.send_video(chat_id=id, video=file, caption=f"{info['title']}\n@QuickMediaYoutubeBot", supports_streaming=True)
 
     except Exception as e:
         if(language == 'russian'):
@@ -315,14 +315,14 @@ def downloadVideoClip(url, id, bot, language):
             'max_filesize': 50 * 1024 * 1024,
             'write_thumbnail': True,
             'outtmpl': os.path.join(chat_folder, '%(title)s.%(ext)s'),
-            'cookies': 'cookie.json'
+   
         }
         options_id = {
             'format': 'bestvideo+bestaudio[acodec=aac]/best',
             'max_filesize': 50 * 1024 * 1024,
             'write_thumbnail': True,
             'outtmpl': os.path.join(chat_folder, '%(id)s.%(ext)s'),
-            'cookies': 'cookie.json'
+
         }
 
         invalid_chars = set(r'\/:*?"<>|')
@@ -340,7 +340,7 @@ def downloadVideoClip(url, id, bot, language):
         file = ydl.prepare_filename(info)
 
         with open(file, 'rb') as file:
-            bot.send_video(chat_id=id, video=file, caption=f'{info['title']}\n@QuickMediaYoutubeBot', supports_streaming=True)
+            bot.send_video(chat_id=id, video=file, caption=f"{info['title']}\n@QuickMediaYoutubeBot", supports_streaming=True)
 
     except Exception as e:
         if(language == 'russian'):
@@ -387,7 +387,7 @@ def downloadVideoYTClip(url, id, bot, language):
         file = ydl.prepare_filename(info)
 
         with open(file, 'rb') as file:
-            bot.send_video(chat_id=id, video=file, caption=f'{info['title']}\n@QuickMediaYoutubeBot', supports_streaming=True)
+            bot.send_video(chat_id=id, video=file, caption=f"{info['title']}\n@QuickMediaYoutubeBot", supports_streaming=True)
 
     except Exception as e:
         if(language == 'russian'):

@@ -2,7 +2,6 @@ import os
 import datetime
 from telebot import telebot, types
 import shutil
-import pyodbc
 from yt_dlp import YoutubeDL
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 from downloader import downloadMP3
